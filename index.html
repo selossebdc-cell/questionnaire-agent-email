@@ -370,6 +370,21 @@
 
   <form id="questionnaireForm">
 
+    <!-- SECTION 0 — Coordonnées -->
+    <div class="section" data-section="0">
+      <h2><span class="section-number">0</span>Tes coordonnées</h2>
+
+      <div class="field">
+        <label>Ton nom et prénom</label>
+        <input type="text" name="nom_prenom" required placeholder="Ex : Jade Denia">
+      </div>
+
+      <div class="field">
+        <label>Le nom de ta société</label>
+        <input type="text" name="societe" required placeholder="Ex : Mon Entreprise SAS">
+      </div>
+    </div>
+
     <!-- SECTION 1 -->
     <div class="section" data-section="1">
       <h2><span class="section-number">1</span>Ton quotidien aujourd'hui</h2>
@@ -1128,7 +1143,8 @@
     });
 
     // Add metadata
-    data._prospect = 'Jade Denia';
+    data._prospect = data.nom_prenom || 'Prospect inconnu';
+    data._societe = data.societe || '';
     data._date_envoi = new Date().toISOString();
     data._formulaire = 'questionnaire-agent-email';
 
